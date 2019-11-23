@@ -74,9 +74,14 @@ void rearrange( char *output, char const *input,
 	}
 
 	if (trun == 0)
-	{
-		strcpy(output + output_col, input + columns[col]);
-		output[output_col + len - columns[col]] = '\0';
+	{	
+		if (columns[col] < len)
+		{
+			strcpy(output + output_col, input + columns[col]);
+			output[output_col + len - columns[col]] = '\0';
+		}else{
+			output[output_col] = '\0';
+		}
 	}else{
 		output[output_col] = '\0';
 	
